@@ -1,4 +1,4 @@
-package com.good.tyotto.NKnockapi;
+package com.good.tyotto.nknock.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
