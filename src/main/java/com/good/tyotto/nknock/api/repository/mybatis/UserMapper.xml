@@ -16,11 +16,7 @@
 
     <select id="get" resultMap="User">
         SELECT
-        USER_ID,
-        EMAIL,
-        PASSWORD,
-        USER_NAME,
-        ADMIN_FLAG
+        *
         FROM
         USER
         <where>
@@ -28,4 +24,5 @@
             AND EMAIL = #{email}
         </where>
     </select>
+
 </mapper>

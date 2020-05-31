@@ -20,7 +20,7 @@ public class DbTestExecutionListener extends AbstractTestExecutionListener {
             DbTestExecutionListener.class.getResource("").getFile()
                     + ".." + File.separator + "data" + File.separator;
 
-    private static final File INIT_DATA = new File(DATA_DIR + "db_init2.xlsx");
+    private static final File INIT_DATA = new File(DATA_DIR + "db_init.xlsx");
 
     private static List<File> backupList = new ArrayList<>();
 

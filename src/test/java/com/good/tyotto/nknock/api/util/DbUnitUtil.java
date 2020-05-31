@@ -178,7 +178,7 @@ public class DbUnitUtil {
     }
 
     static IDatabaseConnection dbUnitConnection(DataSource dataSource) throws Exception {
-        return new H2Connection(dataSource.getConnection(), "KNOWLEDGE");
+        return new H2Connection(dataSource.getConnection(), "knockdb");
     }
 
 }
