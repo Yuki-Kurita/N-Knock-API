@@ -6,6 +6,8 @@ import com.good.tyotto.nknock.api.service.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +32,10 @@ public class UserRestController {
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public User find(UserSelector selector) {
         return this.service.find(selector);
+    }
+
+    @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void add(@RequestBody User user) {
+        this.service.add(user);
     }
 }

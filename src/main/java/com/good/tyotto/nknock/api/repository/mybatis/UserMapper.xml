@@ -25,4 +25,30 @@
         </where>
     </select>
 
+    <insert id="add" parameterType="com.good.tyotto.nknock.api.domain.User" useGeneratedKeys="true" keyProperty="userId">
+        <include refid="timestampVariable"/>
+        INSERT INTO USER
+        (
+        EMAIL,
+        PASSWORD,
+        USER_NAME,
+        UPDATED_AT,
+        DELETE_FLAG,
+        ADMIN_FLAG
+        )
+        VALUES
+        (
+        #{email},
+        #{password},
+        #{userName},
+        #{sysdate},
+        0,
+        0
+        )
+    </insert>
+
+    <!-- sysdateをbindする共通Util -->
+    <sql id="timestampVariable">
+        <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>
+    </sql>
 </mapper>

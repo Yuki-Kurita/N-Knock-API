@@ -26,4 +26,9 @@ public class UserRepositoryImpl implements UserRepository {
         }
         return user;
     }
+
+    @Override
+    public void insert(User user) {
+        this.sqlSession.getMapper(UserMapper.class).add(user);
+    }
 }

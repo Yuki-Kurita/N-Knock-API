@@ -66,4 +66,18 @@ public class UserRepositoryImplTest {
         assertThrows(ResourceNotFoundException.class,
                 () ->  new UserRepositoryImpl(this.sqlSession).find(selector));
     }
+
+    @Test
+    public void testAddWhenSucssess() {
+        // setup
+        User input = new User();
+        Mockito.doReturn(1).when(mapper).add(input);
+
+        // when
+        new UserRepositoryImpl(this.sqlSession).insert(input);
+
+        // then
+        Mockito.verify(mapper, Mockito.times(1)).add(input);
+    }
+
 }

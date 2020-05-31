@@ -11,4 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
 
     User get(UserSelector selector);
+
+    int add(User user);
 }
