@@ -7,7 +7,7 @@
     <resultMap id="User" type="com.good.tyotto.nknock.api.domain.User">
         <id property="userId" column="USER_ID"/>
         <result property="email" column="EMAIL"/>
-        <result property="password" column="PASSWORD"/>
+        <result property="fireId" column="FIRE_ID"/>
         <result property="userName" column="USER_NAME"/>
         <result property="updatedAt" column="UPDATED_AT"/>
         <result property="deleteFlag" column="DELETE_FLAG"/>
@@ -30,7 +30,7 @@
         INSERT INTO USER
         (
         EMAIL,
-        PASSWORD,
+        FIRE_ID,
         USER_NAME,
         UPDATED_AT,
         DELETE_FLAG,
@@ -39,13 +39,25 @@
         VALUES
         (
         #{email},
-        #{password},
+        #{fireId},
         #{userName},
         #{sysdate},
         0,
         0
         )
     </insert>
+
+    <update id="setUserName" parameterType="com.good.tyotto.nknock.api.domain.User">
+        <include refid="timestampVariable"/>
+        UPDATE USER
+        SET
+        USER_NAME = #{userName},
+        UPDATED_AT = #{sysdate}
+        <where>
+            DELETE_FLAG = 0
+            AND EMAIL = #{email}
+        </where>
+    </update>
 
     <!-- sysdateをbindする共通Util -->
     <sql id="timestampVariable">

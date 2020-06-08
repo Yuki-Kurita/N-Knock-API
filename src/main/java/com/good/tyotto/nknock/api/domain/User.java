@@ -22,9 +22,9 @@ public class User {
     private String email;
 
     /**
-     * パスワード
+     * Firebaseでのユーザ固有ID
      */
-    private String password;
+    private String fireId;
 
     /**
      * ユーザ名
@@ -62,12 +62,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getFireId() {
+        return fireId;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setFireId(String fireId) {
+        this.fireId= fireId;
     }
 
     public String getUserName() {

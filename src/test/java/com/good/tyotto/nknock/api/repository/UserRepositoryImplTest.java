@@ -80,4 +80,13 @@ public class UserRepositoryImplTest {
         Mockito.verify(mapper, Mockito.times(1)).add(input);
     }
 
+    @Test
+    public void testUserNameSet() {
+        User input = new User();
+        Mockito.doReturn(1).when(mapper).setUserName(input);
+
+        new UserRepositoryImpl(this.sqlSession).updateUserName(input);
+
+        Mockito.verify(mapper, Mockito.times(1)).setUserName(input);
+    }
 }

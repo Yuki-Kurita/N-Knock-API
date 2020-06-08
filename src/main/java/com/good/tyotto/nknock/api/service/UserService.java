@@ -17,4 +17,6 @@ public interface UserService {
     public User find(UserSelector selector);
 
     public void add(User user);
+
+    public void updateUserName(User user);
 }

@@ -13,4 +13,6 @@ public interface UserMapper {
     User get(UserSelector selector);
 
     int add(User user);
+
+    int setUserName(User user);
 }

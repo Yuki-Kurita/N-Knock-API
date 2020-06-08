@@ -74,4 +74,9 @@ public class UserRestControllerTest {
         // then: テスト結果の検証。戻り値、Mockの呼び出し方法、回数など
         Mockito.verify(userService, Mockito.times(1)).add(ArgumentMatchers.any(User.class));
     }
+
+    /**
+     * ユーザ名更新による検証
+     */
+
 }

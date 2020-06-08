@@ -22,4 +22,10 @@ public interface UserRepository {
      * @param user 登録内容
      */
     void insert(User user);
+
+    /**
+     * Emailに紐づくUserの更新
+     * @param user 更新内容
+     */
+    void updateUserName(User user);
 }
