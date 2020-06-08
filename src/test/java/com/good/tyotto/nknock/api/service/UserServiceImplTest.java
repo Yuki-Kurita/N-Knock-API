@@ -37,5 +37,25 @@ public class UserServiceImplTest {
             assertEquals(findResult, user);
             Mockito.verify(userRepository, Mockito.times(1)).find(input);
         }
+
+        @Test
+        public void testAdd() {
+            // setup
+            User input = new User();
+            UserServiceImpl target = new UserServiceImpl(userRepository);
+
+            target.add(input);
+
+            Mockito.verify(userRepository, Mockito.times(1)).insert(input);
+        }
+
+        @Test
+        public void testUpdateUserName() {
+            User input = new User();
+            UserServiceImpl target = new UserServiceImpl(userRepository);
+
+            target.updateUserName(input);
+            Mockito.verify(userRepository, Mockito.times(1)).updateUserName(input);
+        }
     }
 }

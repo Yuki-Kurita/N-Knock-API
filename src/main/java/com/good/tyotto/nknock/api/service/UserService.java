@@ -15,4 +15,8 @@ public interface UserService {
      * @return 条件に合致したUserデータ
      */
     public User find(UserSelector selector);
+
+    public void add(User user);
+
+    public void updateUserName(User user);
 }
