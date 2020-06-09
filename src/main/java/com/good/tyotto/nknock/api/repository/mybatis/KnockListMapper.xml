@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.good.tyotto.nknock.api.repository.mybatis.KnockListMapper">
+
+    <resultMap id="User" type="com.good.tyotto.nknock.api.domain.KnockList">
+        <id property="knockListId" column="KNOCKLIST_ID"/>
+        <result property="knockListName" column="KNOCKLIST_NAME"/>
+        <result property="overview" column="OVERVIEW"/>
+        <result property="fireId" column="FIRE_ID"/>
+        <result property="updatedAt" column="UPDATED_AT"/>
+        <result property="deleteFlag" column="DELETE_FLAG"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="KnockList">
+        SELECT
+        *
+        FROM
+        KNOCKLIST
+        <where>
+            DELETE_FLAT = 0
+        </where>
+    </select>
+
+    <select id="get" resultMap="KnockList"
+
+    <!-- sysdateをbindする共通Util -->
+    <sql id="timestampVariable">
+        <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>
+    </sql>
+</mapper>
