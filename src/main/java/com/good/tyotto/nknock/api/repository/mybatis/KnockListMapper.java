@@ -1,7 +1,6 @@
 package com.good.tyotto.nknock.api.repository.mybatis;
 
 import com.good.tyotto.nknock.api.domain.KnockList;
-import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.good.tyotto.nknock.api.repository.mybatis.KnockListMapper">
 
-    <resultMap id="User" type="com.good.tyotto.nknock.api.domain.KnockList">
+    <resultMap id="KnockList" type="com.good.tyotto.nknock.api.domain.KnockList">
         <id property="knockListId" column="KNOCKLIST_ID"/>
         <result property="knockListName" column="KNOCKLIST_NAME"/>
         <result property="overview" column="OVERVIEW"/>
@@ -14,13 +14,19 @@
         <result property="tagId" column="TAG_ID"/>
     </resultMap>
 
+    <resultMap id="Tag" type="com.good.tyotto.nknock.api.domain.Tag">
+        <id property="tagId" column="TAG_ID"/>
+        <result property="tagName" column="TAG_NAME"/>
+    </resultMap>
+
+
     <select id="getAll" resultMap="KnockList">
         SELECT
         *
         FROM
         KNOCKLIST
         <where>
-            DELETE_FLAT = 0
+            DELETE_FLAG = 0
         </where>
     </select>
 
@@ -34,20 +40,20 @@
         KNOCKLIST_NAME,
         OVERVIEW,
         UPDATED_AT,
-        TAG
-        FROM KNOCKLIST
-        JOIN TAG
+        TAG_NAME
+        FROM KNOCKLIST AS K
+        JOIN TAG AS T
         USING(TAG_ID)
         <where>
-            DELETE_FLAG = 0
+            K.DELETE_FLAG = 0
             <if test="fireId != null">
-                AND FIRE_ID = #{fireId}
+                AND K.FIRE_ID = #{fireId}
             </if>
-            <if test="tagId != null">
-                AND TAG_ID = #{tagId}
+            <if test="tagId != 0">
+                AND K.TAG_ID = #{tagId}
             </if>
             <if test="knockListName != null">
-                AND KNOCKLIST_NAME LIKE CONCAT('%', #{knockListName}, '%')
+                AND K.KNOCKLIST_NAME LIKE CONCAT('%', #{knockListName}, '%')
             </if>
         </where>
     </select>
