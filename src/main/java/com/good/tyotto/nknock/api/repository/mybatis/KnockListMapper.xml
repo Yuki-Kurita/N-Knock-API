@@ -59,13 +59,16 @@
 
     <select id="get" resultMap="KnockList">
         SELECT
-        KNOCKLIST_NAME,
-        OVERVIEW,
-        UPDATED_AT,
-        TAG_NAME
+        K.KNOCKLIST_NAME,
+        K.OVERVIEW,
+        K.UPDATED_AT,
+        T.TAG_NAME,
+        U.USER_NAME
         FROM KNOCKLIST AS K
         JOIN TAG AS T
-        USING(TAG_ID)
+        ON K.TAG_ID = T.TAG_ID
+        JOIN USER AS U
+        ON K.FIRE_ID = U.FIRE_ID
         <where>
             K.DELETE_FLAG = 0
             <if test="fireId != null">
@@ -78,6 +81,6 @@
                 AND K.KNOCKLIST_NAME LIKE CONCAT('%', #{knockListName}, '%')
             </if>
         </where>
-        ORDER BY UPDATED_AT DESC
+        ORDER BY K.UPDATED_AT DESC
     </select>
 </mapper>
