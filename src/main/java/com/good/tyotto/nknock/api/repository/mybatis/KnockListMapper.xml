@@ -11,6 +11,7 @@
         <result property="fireId" column="FIRE_ID"/>
         <result property="updatedAt" column="UPDATED_AT"/>
         <result property="deleteFlag" column="DELETE_FLAG"/>
+        <result property="tagId" column="TAG_ID"/>
     </resultMap>
 
     <select id="getAll" resultMap="KnockList">
@@ -23,10 +24,31 @@
         </where>
     </select>
 
-    <select id="get" resultMap="KnockList"
-
     <!-- sysdateをbindする共通Util -->
     <sql id="timestampVariable">
         <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>
     </sql>
+
+    <select id="get" resultMap="KnockList">
+        SELECT
+        KNOCKLIST_NAME,
+        OVERVIEW,
+        UPDATED_AT,
+        TAG
+        FROM KNOCKLIST
+        JOIN TAG
+        USING(TAG_ID)
+        <where>
+            DELETE_FLAG = 0
+            <if test="fireId != null">
+                AND FIRE_ID = #{fireId}
+            </if>
+            <if test="tagId != null">
+                AND TAG_ID = #{tagId}
+            </if>
+            <if test="knockListName != null">
+                AND KNOCKLIST_NAME LIKE CONCAT('%', #{knockListName}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>

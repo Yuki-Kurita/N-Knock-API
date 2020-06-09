@@ -7,7 +7,7 @@ public class KnockListSelector {
 
     private String fireId;
 
-    private String tag;
+    private int tagId;
 
     private String knockListName;
 
@@ -19,12 +19,12 @@ public class KnockListSelector {
         this.fireId = fireId;
     }
 
-    public String getTag() {
-        return tag;
+    public int getTag() {
+        return tagId;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setTagId(int tagId) {
+        this.tagId = tagId;
     }
 
     public String getKnockListName() {

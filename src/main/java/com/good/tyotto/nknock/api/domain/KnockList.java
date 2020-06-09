@@ -27,9 +27,9 @@ public class KnockList {
     private String overview;
 
     /**
-     * タグ
+     * タグID
      */
-    private String tag;
+    private int tagId;
 
     /**
      * Fire id
@@ -70,12 +70,12 @@ public class KnockList {
         this.overview = overview;
     }
 
-    public String getTag() {
-        return tag;
+    public int getTagId() {
+        return tagId;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setTagId(int tagId) {
+        this.tagId = tagId;
     }
 
     public String getFireId() {
