@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.good.tyotto.nknock.api.repository.mybatis.KnockListMapper">
+
+    <resultMap id="KnockList" type="com.good.tyotto.nknock.api.domain.KnockList">
+        <id property="knockListId" column="KNOCKLIST_ID"/>
+        <result property="knockListName" column="KNOCKLIST_NAME"/>
+        <result property="overview" column="OVERVIEW"/>
+        <result property="fireId" column="FIRE_ID"/>
+        <result property="updatedAt" column="UPDATED_AT"/>
+        <result property="deleteFlag" column="DELETE_FLAG"/>
+        <result property="tagId" column="TAG_ID"/>
+    </resultMap>
+
+    <resultMap id="Tag" type="com.good.tyotto.nknock.api.domain.Tag">
+        <id property="tagId" column="TAG_ID"/>
+        <result property="tagName" column="TAG_NAME"/>
+    </resultMap>
+
+
+    <select id="getAll" resultMap="KnockList">
+        SELECT
+        *
+        FROM
+        KNOCKLIST
+        <where>
+            DELETE_FLAG = 0
+        </where>
+    </select>
+
+    <!-- sysdateをbindする共通Util -->
+    <sql id="timestampVariable">
+        <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>
+    </sql>
+
+    <select id="get" resultMap="KnockList">
+        SELECT
+        KNOCKLIST_NAME,
+        OVERVIEW,
+        UPDATED_AT,
+        TAG_NAME
+        FROM KNOCKLIST AS K
+        JOIN TAG AS T
+        USING(TAG_ID)
+        <where>
+            K.DELETE_FLAG = 0
+            <if test="fireId != null">
+                AND K.FIRE_ID = #{fireId}
+            </if>
+            <if test="tagId != 0">
+                AND K.TAG_ID = #{tagId}
+            </if>
+            <if test="knockListName != null">
+                AND K.KNOCKLIST_NAME LIKE CONCAT('%', #{knockListName}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>
