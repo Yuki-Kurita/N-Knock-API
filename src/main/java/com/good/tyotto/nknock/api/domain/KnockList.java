@@ -27,14 +27,24 @@ public class KnockList {
     private String overview;
 
     /**
+     * タグ
+     */
+    private String tagName;
+
+    /**
      * タグID
      */
     private int tagId;
 
     /**
-     * Fire id
+     * Firebase id
      */
     private String fireId;
+
+    /**
+     * ユーザ名
+     */
+    private String userName;
 
     /**
      * 最終更新日時
@@ -70,6 +80,14 @@ public class KnockList {
         this.overview = overview;
     }
 
+    public String getTagName() {
+        return tagName;
+    }
+
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
+    }
+
     public int getTagId() {
         return tagId;
     }
@@ -84,6 +102,14 @@ public class KnockList {
 
     public void setFireId(String fireId) {
         this.fireId = fireId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public LocalDateTime getUpdatedAt() {

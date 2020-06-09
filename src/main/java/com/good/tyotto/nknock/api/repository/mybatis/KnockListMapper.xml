@@ -12,6 +12,8 @@
         <result property="updatedAt" column="UPDATED_AT"/>
         <result property="deleteFlag" column="DELETE_FLAG"/>
         <result property="tagId" column="TAG_ID"/>
+        <result property="tagName" column="TAG_NAME"/>
+        <result property="userName" column="USER_NAME"/>
     </resultMap>
 
     <resultMap id="Tag" type="com.good.tyotto.nknock.api.domain.Tag">
@@ -19,14 +21,33 @@
         <result property="tagName" column="TAG_NAME"/>
     </resultMap>
 
+    <resultMap id="User" type="com.good.tyotto.nknock.api.domain.User">
+        <id property="userId" column="USER_ID"/>
+        <result property="email" column="EMAIL"/>
+        <result property="fireId" column="FIRE_ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="updatedAt" column="UPDATED_AT"/>
+        <result property="deleteFlag" column="DELETE_FLAG"/>
+        <result property="adminFlag" column="ADMIN_FLAG"/>
+    </resultMap>
+
 
     <select id="getAll" resultMap="KnockList">
         SELECT
-        *
+        K.KNOCKLIST_ID,
+        K.KNOCKLIST_NAME,
+        K.OVERVIEW,
+        K.UPDATED_AT,
+        T.TAG_NAME,
+        U.USER_NAME
         FROM
-        KNOCKLIST
+        KNOCKLIST AS K
+        JOIN TAG AS T
+        ON K.TAG_ID = T.TAG_ID
+        JOIN USER AS U
+        ON K.FIRE_ID = U.FIRE_ID
         <where>
-            DELETE_FLAG = 0
+            K.DELETE_FLAG = 0
         </where>
         ORDER BY UPDATED_AT DESC
     </select>
