@@ -28,4 +28,10 @@ public interface KnockListRepository {
      * @return 全てのタグ
      */
     List<Tag> findTag();
+
+    /**
+     * ノックリストを追加
+     * @param knockList 追加するノックリスト
+     */
+    void add(KnockList knockList);
 }

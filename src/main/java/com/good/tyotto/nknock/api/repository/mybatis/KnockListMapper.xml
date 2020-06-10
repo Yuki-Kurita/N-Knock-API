@@ -52,11 +52,6 @@
         ORDER BY UPDATED_AT DESC
     </select>
 
-    <!-- sysdateをbindする共通Util -->
-    <sql id="timestampVariable">
-        <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>
-    </sql>
-
     <select id="get" resultMap="KnockList">
         SELECT
         K.KNOCKLIST_ID,
@@ -91,4 +86,30 @@
         FROM
         TAG
     </select>
+
+    <insert id="add" parameterType="com.good.tyotto.nknock.api.domain.KnockList" useGeneratedKeys="true" keyProperty="knockListId">
+        <include refid="timestampVariable"/>
+        INSERT INTO
+        KNOCKLIST
+        (
+        KNOCKLIST_NAME,
+        OVERVIEW,
+        FIRE_ID,
+        UPDATED_AT,
+        TAG_ID
+        )
+        VALUES
+        (
+        #{knockListName},
+        #{overview},
+        #{fireId},
+        #{sysdate},
+        #{tagId}
+        )
+    </insert>
+
+    <!-- sysdateをbindする共通Util -->
+    <sql id="timestampVariable">
+        <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>
+    </sql>
 </mapper>

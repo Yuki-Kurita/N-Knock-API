@@ -17,4 +17,6 @@ public interface KnockListMapper {
     List<KnockList> get(KnockListSelector selector);
 
     List<Tag> getTag();
+
+    void add(KnockList knockList);
 }
