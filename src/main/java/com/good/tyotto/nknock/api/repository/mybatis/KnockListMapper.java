@@ -2,6 +2,7 @@ package com.good.tyotto.nknock.api.repository.mybatis;
 
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
+import com.good.tyotto.nknock.api.domain.Tag;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,4 +16,5 @@ public interface KnockListMapper {
 
     List<KnockList> get(KnockListSelector selector);
 
+    List<Tag> getTag();
 }

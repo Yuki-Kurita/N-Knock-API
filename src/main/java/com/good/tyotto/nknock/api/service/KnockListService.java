@@ -2,6 +2,7 @@ package com.good.tyotto.nknock.api.service;
 
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
+import com.good.tyotto.nknock.api.domain.TagList;
 
 public interface KnockListService {
 
@@ -17,4 +18,7 @@ public interface KnockListService {
      * @return 条件に合致したノックリスト
      */
     KnockListGroup find(KnockListSelector selector);
+
+
+    TagList findTag();
 }

@@ -2,6 +2,7 @@ package com.good.tyotto.nknock.api.repository;
 
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
+import com.good.tyotto.nknock.api.domain.Tag;
 import java.util.List;
 
 /**
@@ -21,4 +22,10 @@ public interface KnockListRepository {
      * @return 条件に合致するノックリスト
      */
     List<KnockList> find(KnockListSelector selecor);
+
+    /**
+     * 全てのタグを取得
+     * @return 全てのタグ
+     */
+    List<Tag> findTag();
 }

@@ -2,6 +2,7 @@ package com.good.tyotto.nknock.api.service;
 
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
+import com.good.tyotto.nknock.api.domain.TagList;
 import com.good.tyotto.nknock.api.repository.KnockListRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,12 @@ public class KnockListServiceImpl implements KnockListService {
         KnockListGroup knockLists = new KnockListGroup();
         knockLists.setKnockLists(knockListRepository.find(selector));
         return knockLists;
+    }
+
+    @Override
+    public TagList findTag() {
+        TagList tagList = new TagList();
+        tagList.setTags(knockListRepository.findTag());
+        return tagList;
     }
 }

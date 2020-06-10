@@ -59,6 +59,7 @@
 
     <select id="get" resultMap="KnockList">
         SELECT
+        K.KNOCKLIST_ID,
         K.KNOCKLIST_NAME,
         K.OVERVIEW,
         K.UPDATED_AT,
@@ -82,5 +83,12 @@
             </if>
         </where>
         ORDER BY K.UPDATED_AT DESC
+    </select>
+
+    <select id="getTag" resultMap="Tag">
+        SELECT
+        *
+        FROM
+        TAG
     </select>
 </mapper>

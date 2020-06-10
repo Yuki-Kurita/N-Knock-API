@@ -2,6 +2,7 @@ package com.good.tyotto.nknock.api.repository;
 
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
+import com.good.tyotto.nknock.api.domain.Tag;
 import com.good.tyotto.nknock.api.repository.mybatis.KnockListMapper;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
@@ -27,5 +28,10 @@ public class KnockListRepositoryImpl implements KnockListRepository {
     @Override
     public List<KnockList> find(KnockListSelector selector) {
         return this.sqlSession.getMapper(KnockListMapper.class).get(selector);
+    }
+
+    @Override
+    public List<Tag> findTag() {
+        return this.sqlSession.getMapper(KnockListMapper.class).getTag();
     }
 }
