@@ -3,6 +3,7 @@ package com.good.tyotto.nknock.api.controller;
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
+import com.good.tyotto.nknock.api.domain.TagList;
 import com.good.tyotto.nknock.api.service.KnockListService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,5 +39,12 @@ public class KnockListRestController {
     @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public KnockListGroup find(KnockListSelector selector) {
         return this.service.find(selector);
+    }
+
+
+    @CrossOrigin(origins = {"http://localhost:8081"})
+    @GetMapping(path = "/tags", produces = MediaType.APPLICATION_JSON_VALUE)
+    public TagList findTag() {
+        return this.service.findTag();
     }
 }
