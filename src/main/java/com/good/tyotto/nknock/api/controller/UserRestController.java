@@ -47,6 +47,10 @@ public class UserRestController {
         this.service.add(user);
     }
 
+    /**
+     * ユーザ情報を更新する
+     * @param user ユーザ情報
+     */
     @CrossOrigin(origins = {"http://localhost:8081"})
     @PatchMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public void updateUserName(@RequestBody User user) {

@@ -1,5 +1,6 @@
 package com.good.tyotto.nknock.api.service;
 
+import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
 import com.good.tyotto.nknock.api.domain.TagList;
@@ -19,6 +20,15 @@ public interface KnockListService {
      */
     KnockListGroup find(KnockListSelector selector);
 
-
+    /**
+     * タグを全件取得する
+     * @return 全てのタグ名とID
+     */
     TagList findTag();
+
+    /**
+     * ノックリストを追加
+     * @param knockList 追加するノックリスト
+     */
+    void add(KnockList knockList);
 }

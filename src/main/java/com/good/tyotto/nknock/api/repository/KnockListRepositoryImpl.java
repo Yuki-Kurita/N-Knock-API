@@ -34,4 +34,9 @@ public class KnockListRepositoryImpl implements KnockListRepository {
     public List<Tag> findTag() {
         return this.sqlSession.getMapper(KnockListMapper.class).getTag();
     }
+
+    @Override
+    public void add(KnockList knockList) {
+        this.sqlSession.getMapper(KnockListMapper.class).add(knockList);
+    }
 }

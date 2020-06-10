@@ -1,5 +1,6 @@
 package com.good.tyotto.nknock.api.service;
 
+import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
 import com.good.tyotto.nknock.api.domain.TagList;
@@ -34,5 +35,10 @@ public class KnockListServiceImpl implements KnockListService {
         TagList tagList = new TagList();
         tagList.setTags(knockListRepository.findTag());
         return tagList;
+    }
+
+    @Override
+    public void add(KnockList knockList) {
+        knockListRepository.add(knockList);
     }
 }
