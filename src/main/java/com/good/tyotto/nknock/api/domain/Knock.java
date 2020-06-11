@@ -3,12 +3,10 @@ package com.good.tyotto.nknock.api.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-/**
- * ノックを表すドメインオブジェクト
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Knock {
+
 
     /**
      * ノックID

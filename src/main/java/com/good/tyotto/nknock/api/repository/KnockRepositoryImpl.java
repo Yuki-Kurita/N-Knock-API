@@ -16,6 +16,6 @@ public class KnockRepositoryImpl implements KnockRepository {
 
     @Override
     public void add(Knock knock) {
-        this.sqlSession.getMapper(KnockMapper.class).insert(knock);
+        this.sqlSession.getMapper(KnockMapper.class).add(knock);
     }
 }

@@ -11,7 +11,7 @@
         <result property="knockListId" column="KNOCKLIST_ID"/>
     </resultMap>
 
-    <insert id="insert" parameterType="com.good.tyotto.nknock.api.domain.knock" useGeneratedKeys="true" keyProperty="knockId">
+    <insert id="add" parameterType="com.good.tyotto.nknock.api.domain.Knock">
         INSERT INTO
         KNOCK
         (
@@ -26,4 +26,5 @@
         #{knockListId}
         )
     </insert>
+
 </mapper>
