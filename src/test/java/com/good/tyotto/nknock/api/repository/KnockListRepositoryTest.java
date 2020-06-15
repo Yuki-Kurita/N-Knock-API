@@ -1,6 +1,7 @@
 package com.good.tyotto.nknock.api.repository;
 
 import static org.junit.Assert.assertEquals;
+import com.good.tyotto.nknock.api.domain.Knock;
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
@@ -58,5 +59,35 @@ public class KnockListRepositoryTest {
 
         assertEquals(findResult, result);
         Mockito.verify(mapper, Mockito.times(1)).get(selector);
+    }
+
+    @Test
+    public void testAdd() {
+        KnockList knockList = new KnockList();
+        Mockito.doNothing().when(mapper).add(knockList);
+
+        new KnockListRepositoryImpl(this.sqlSession).add(knockList);
+
+        Mockito.verify(mapper, Mockito.times(1)).add(knockList);
+    }
+
+    @Test
+    public void testSet() {
+        KnockList knockList = new KnockList();
+        Mockito.doNothing().when(mapper).update(knockList);
+
+        new KnockListRepositoryImpl(this.sqlSession).set(knockList);
+
+        Mockito.verify(mapper, Mockito.times(1)).update(knockList);
+    }
+
+    @Test
+    public void testRemove() {
+        int knockListId = 1;
+        Mockito.doNothing().when(mapper).delete(knockListId);
+
+        new KnockListRepositoryImpl(this.sqlSession).remove(knockListId);
+
+        Mockito.verify(mapper, Mockito.times(1)).delete(knockListId);
     }
 }

@@ -49,5 +49,35 @@ public class KnockListServiceImplTest {
             assertEquals(findResult, knockListGroup.getKnockLists());
             Mockito.verify(knockListRepository, Mockito.times(1)).find(selector);
         }
+
+        @Test void testAdd() {
+            KnockList knockList = new KnockList();
+            Mockito.doNothing().when(knockListRepository).add(knockList);
+            KnockListServiceImpl target = new KnockListServiceImpl(knockListRepository);
+
+            target.add(knockList);
+
+            Mockito.verify(knockListRepository, Mockito.times(1)).add(knockList);
+        }
+
+        @Test void testSet() {
+            KnockList knockList = new KnockList();
+            Mockito.doNothing().when(knockListRepository).set(knockList);
+            KnockListServiceImpl target = new KnockListServiceImpl(knockListRepository);
+
+            target.set(knockList);
+
+            Mockito.verify(knockListRepository, Mockito.times(1)).set(knockList);
+        }
+
+        @Test void testRemove() {
+            int knockListId = 1;
+            Mockito.doNothing().when(knockListRepository).remove(knockListId);
+            KnockListServiceImpl target = new KnockListServiceImpl(knockListRepository);
+
+            target.remove(knockListId);
+
+            Mockito.verify(knockListRepository, Mockito.times(1)).remove(knockListId);
+        }
     }
 }

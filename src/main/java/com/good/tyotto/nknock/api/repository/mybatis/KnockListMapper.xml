@@ -108,6 +108,21 @@
         )
     </insert>
 
+    <update id="update" parameterType="com.good.tyotto.nknock.api.domain.KnockList">
+        <include refid="timestampVariable"/>
+        UPDATE KNOCKLIST
+        SET
+        KNOCKLIST_NAME = #{knockListName},
+        OVERVIEW = #{overview},
+        UPDATED_AT = #{sysdate},
+        TAG_ID = #{tagId}
+        <where>
+            DELETE_FLAG = 0
+            AND
+            KNOCKLIST_ID = #{knockListId}
+        </where>
+    </update>
+
     <!-- sysdateをbindする共通Util -->
     <sql id="timestampVariable">
         <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>

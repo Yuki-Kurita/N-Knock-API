@@ -41,4 +41,14 @@ public class KnockListServiceImpl implements KnockListService {
     public void add(KnockList knockList) {
         knockListRepository.add(knockList);
     }
+
+    @Override
+    public void set(KnockList knockList) {
+        knockListRepository.set(knockList);
+    }
+
+    @Override
+    public void remove(int knockListId) {
+        knockListRepository.remove(knockListId);
+    }
 }

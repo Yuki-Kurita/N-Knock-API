@@ -31,4 +31,16 @@ public interface KnockListService {
      * @param knockList 追加するノックリスト
      */
     void add(KnockList knockList);
+
+    /**
+     * ノックリストを編集
+     * @param knockList 編集するノックリスト
+     */
+    void set(KnockList knockList);
+
+    /**
+     * ノックリストを削除
+     * @param knockListId 削除するノックリストのID
+     */
+    void remove(int knockListId);
 }
