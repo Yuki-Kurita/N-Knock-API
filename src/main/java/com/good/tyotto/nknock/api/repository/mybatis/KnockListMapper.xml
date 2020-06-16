@@ -123,6 +123,13 @@
         </where>
     </update>
 
+    <update id="delete" parameterType="com.good.tyotto.nknock.api.domain.KnockListSelector">
+        UPDATE KNOCKLIST
+        SET DELETE_FLAG = 1
+        WHERE
+        KNOCKLIST_ID = #{knockListId}
+    </update>
+
     <!-- sysdateをbindする共通Util -->
     <sql id="timestampVariable">
         <bind name="sysdate" value="@java.time.LocalDateTime@now()"/>

@@ -19,7 +19,7 @@ public class KnockListSelector {
         this.fireId = fireId;
     }
 
-    public int getTag() {
+    public int getTagId() {
         return tagId;
     }
 

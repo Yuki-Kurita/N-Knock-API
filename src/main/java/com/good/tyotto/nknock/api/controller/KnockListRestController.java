@@ -7,6 +7,7 @@ import com.good.tyotto.nknock.api.domain.TagList;
 import com.good.tyotto.nknock.api.service.KnockListService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -84,7 +85,7 @@ public class KnockListRestController {
      * @param knockListId 削除対象のノックリストID
      */
     @CrossOrigin(origins = {"http://localhost:8081"})
-    @PatchMapping(path = "/{knockListId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/{knockListId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void remove(@PathVariable int knockListId) {
         this.service.remove(knockListId);
     }
