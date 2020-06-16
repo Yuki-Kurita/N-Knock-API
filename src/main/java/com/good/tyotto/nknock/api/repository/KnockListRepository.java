@@ -1,5 +1,6 @@
 package com.good.tyotto.nknock.api.repository;
 
+import com.good.tyotto.nknock.api.domain.Knock;
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListSelector;
 import com.good.tyotto.nknock.api.domain.Tag;
@@ -34,4 +35,16 @@ public interface KnockListRepository {
      * @param knockList 追加するノックリスト
      */
     void add(KnockList knockList);
+
+    /**
+     * ノックリストを編集
+     * @param knockList 編集するノックリスト
+     */
+    void set(KnockList knockList);
+
+    /**
+     * ノックリストを削除
+     * @param knockListId 削除するノックリストのId
+     */
+    void remove(int knockListId);
 }

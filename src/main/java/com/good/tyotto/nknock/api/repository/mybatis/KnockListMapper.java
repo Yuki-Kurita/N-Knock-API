@@ -19,4 +19,8 @@ public interface KnockListMapper {
     List<Tag> getTag();
 
     void add(KnockList knockList);
+
+    void update(KnockList knockList);
+
+    void delete(int knockListId);
 }

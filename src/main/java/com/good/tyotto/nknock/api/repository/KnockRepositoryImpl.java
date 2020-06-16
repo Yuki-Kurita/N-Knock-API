@@ -1,6 +1,8 @@
 package com.good.tyotto.nknock.api.repository;
 
 import com.good.tyotto.nknock.api.domain.Knock;
+import com.good.tyotto.nknock.api.domain.KnockGroup;
+import com.good.tyotto.nknock.api.domain.KnockSelector;
 import com.good.tyotto.nknock.api.repository.mybatis.KnockMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -15,7 +17,12 @@ public class KnockRepositoryImpl implements KnockRepository {
     }
 
     @Override
+    public KnockGroup find(KnockSelector selector) {
+        return null;
+    }
+
+    @Override
     public void add(Knock knock) {
-        this.sqlSession.getMapper(KnockMapper.class).insert(knock);
+        this.sqlSession.getMapper(KnockMapper.class).add(knock);
     }
 }

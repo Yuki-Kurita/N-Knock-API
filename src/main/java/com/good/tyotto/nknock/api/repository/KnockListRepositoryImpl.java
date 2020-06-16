@@ -39,4 +39,15 @@ public class KnockListRepositoryImpl implements KnockListRepository {
     public void add(KnockList knockList) {
         this.sqlSession.getMapper(KnockListMapper.class).add(knockList);
     }
+
+    @Override
+    public void set(KnockList knockList) {
+        this.sqlSession.getMapper(KnockListMapper.class).update(knockList);
+    }
+
+    @Override
+    public void remove(int knockListId) {
+        this.sqlSession.getMapper(KnockListMapper.class).delete(knockListId);
+    }
+
 }
