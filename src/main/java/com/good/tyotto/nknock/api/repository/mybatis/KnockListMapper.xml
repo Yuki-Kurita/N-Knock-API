@@ -123,7 +123,7 @@
         </where>
     </update>
 
-    <update id="delete" parameterType="com.good.tyotto.nknock.api.domain.KnockListSelector">
+    <update id="delete" parameterType="int">
         UPDATE KNOCKLIST
         SET DELETE_FLAG = 1
         WHERE
