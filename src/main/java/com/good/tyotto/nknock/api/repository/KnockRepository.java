@@ -27,7 +27,7 @@ public interface KnockRepository {
 
     /**
      * ノックを削除する
-     * @param knockListId 削除するノックのノックリストID
+     * @param knockId ノック削除対象
      */
-    void remove(int knockListId);
+    void remove(int knockId);
 }

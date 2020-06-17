@@ -34,7 +34,7 @@ public class KnockRepositoryImpl implements KnockRepository {
     }
 
     @Override
-    public void remove(int knockListId) {
-        this.sqlSession.getMapper(KnockMapper.class).delete(knockListId);
+    public void remove(int knockId) {
+        this.sqlSession.getMapper(KnockMapper.class).delete(knockId);
     }
 }

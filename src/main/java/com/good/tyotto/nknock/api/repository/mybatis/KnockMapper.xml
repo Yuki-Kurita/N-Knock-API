@@ -17,9 +17,10 @@
         QUIZ,
         ANSWER
         FROM KNOCK
+        WHERE KNOCKLIST_ID = #{knockListId}
     </select>
 
-    <insert id="add" parameterType="com.good.tyotto.nknock.api.domain.Knock">
+    <insert id="insert" parameterType="com.good.tyotto.nknock.api.domain.Knock">
         INSERT INTO
         KNOCK
         (
@@ -53,10 +54,7 @@
         FROM
         KNOCK
         <where>
-            KNOCKID = #{knockId}
-            <if test="knockListId != null">
-                AND KNOCKLIST_ID = #{knockListId}
-            </if>
+            KNOCK_ID = #{knockId}
         </where>
     </delete>
 

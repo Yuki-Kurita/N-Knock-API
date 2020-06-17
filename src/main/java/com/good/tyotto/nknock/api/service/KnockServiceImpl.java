@@ -35,7 +35,7 @@ public class KnockServiceImpl implements KnockService {
     }
 
     @Override
-    public void remove(int knockListId) {
-        knockRepository.remove(knockListId);
+    public void remove(int knockId) {
+        knockRepository.remove(knockId);
     }
 }

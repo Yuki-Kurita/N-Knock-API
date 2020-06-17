@@ -17,5 +17,5 @@ public interface KnockMapper {
 
     int update(Knock knock);
 
-    void delete(int knockListId);
+    void delete(int knockId);
 }

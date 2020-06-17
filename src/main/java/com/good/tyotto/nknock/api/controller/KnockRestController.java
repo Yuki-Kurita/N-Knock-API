@@ -46,6 +46,10 @@ public class KnockRestController {
         this.service.set(knock);
     }
 
+    /**
+     * Knockを削除する
+     * @param knockListId 削除対象のノックリストID
+     */
     @CrossOrigin(origins = {"http://localhost:8081"})
     @DeleteMapping(path = "/{knockListId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void remove(@PathVariable int knockListId) {

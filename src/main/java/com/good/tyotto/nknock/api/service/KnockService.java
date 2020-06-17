@@ -27,7 +27,7 @@ public interface KnockService {
 
     /**
      * ノックを削除
-     * @param knockListId 削除する対象のノックのノックリストID
+     * @param knockId 削除するノック対象
      */
-    void remove(int knockListId);
+    void remove(int knockId);
 }
