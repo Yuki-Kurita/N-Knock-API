@@ -18,11 +18,9 @@ public class KnockRepositoryImpl implements KnockRepository {
     }
 
     @Override
-    public KnockGroup find(KnockSelector selector) {
+    public List<Knock> find(KnockSelector selector) {
         List<Knock> knocks = this.sqlSession.getMapper(KnockMapper.class).find(selector);
-        KnockGroup knockGroup = new KnockGroup();
-        knockGroup.setKnocks(knocks);
-        return knockGroup;
+        return knocks;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.good.tyotto.nknock.api.repository;
 
 import com.good.tyotto.nknock.api.domain.Knock;
-import com.good.tyotto.nknock.api.domain.KnockGroup;
 import com.good.tyotto.nknock.api.domain.KnockSelector;
+import java.util.List;
 
 public interface KnockRepository {
 
@@ -11,7 +11,7 @@ public interface KnockRepository {
      * @param selector ノックの検索条件
      * @return 条件にマッチするノック
      */
-    KnockGroup find(KnockSelector selector);
+    List<Knock> find(KnockSelector selector);
 
     /**
      * ノックを追加する
