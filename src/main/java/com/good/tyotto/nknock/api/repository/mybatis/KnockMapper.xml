@@ -11,7 +11,16 @@
         <result property="knockListId" column="KNOCKLIST_ID"/>
     </resultMap>
 
-    <insert id="add" parameterType="com.good.tyotto.nknock.api.domain.Knock">
+    <select id="find" resultMap="Knock">
+        SELECT
+        KNOCK_ID,
+        QUIZ,
+        ANSWER
+        FROM KNOCK
+        WHERE KNOCKLIST_ID = #{knockListId}
+    </select>
+
+    <insert id="insert" parameterType="com.good.tyotto.nknock.api.domain.Knock">
         INSERT INTO
         KNOCK
         (
@@ -26,5 +35,27 @@
         #{knockListId}
         )
     </insert>
+
+    <update id="update" parameterType="com.good.tyotto.nknock.api.domain.Knock">
+        UPDATE
+        KNOCK
+        SET
+        QUIZ = #{quiz},
+        ANSWER = #{answer}
+        <where>
+            KNOCK_ID = #{knockId}
+            AND
+            KNOCKLIST_ID = #{knockListId}
+        </where>
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE
+        FROM
+        KNOCK
+        <where>
+            KNOCK_ID = #{knockId}
+        </where>
+    </delete>
 
 </mapper>
