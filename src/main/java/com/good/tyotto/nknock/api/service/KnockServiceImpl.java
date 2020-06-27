@@ -38,4 +38,5 @@ public class KnockServiceImpl implements KnockService {
     public void remove(int knockId) {
         knockRepository.remove(knockId);
     }
+
 }
