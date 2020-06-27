@@ -61,6 +61,16 @@ public class KnockListRestController {
     }
 
     /**
+     * 最新のノックリストIDを取得
+     * @return 最新ノックリストID
+     */
+    @CrossOrigin(origins = {"http://localhost:8081"})
+    @GetMapping(path = "/latest", produces = MediaType.APPLICATION_JSON_VALUE)
+    public int getLatestId() {
+        return this.service.getLatestId();
+    }
+
+    /**
      * ノックリストを追加
      * @param knockList 追加するノックリスト
      */

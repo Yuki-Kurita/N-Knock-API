@@ -36,6 +36,11 @@ public class KnockListRepositoryImpl implements KnockListRepository {
     }
 
     @Override
+    public int getLatestId() {
+        return this.sqlSession.getMapper(KnockListMapper.class).getLatestId();
+    }
+
+    @Override
     public void add(KnockList knockList) {
         this.sqlSession.getMapper(KnockListMapper.class).add(knockList);
     }

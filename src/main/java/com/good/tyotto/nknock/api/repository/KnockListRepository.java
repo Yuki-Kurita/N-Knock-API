@@ -31,6 +31,12 @@ public interface KnockListRepository {
     List<Tag> findTag();
 
     /**
+     * 最新のノックリストIDを取得する
+     * @return
+     */
+    int getLatestId();
+
+    /**
      * ノックリストを追加
      * @param knockList 追加するノックリスト
      */

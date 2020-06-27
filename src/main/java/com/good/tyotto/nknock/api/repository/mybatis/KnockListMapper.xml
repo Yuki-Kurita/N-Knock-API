@@ -87,6 +87,13 @@
         TAG
     </select>
 
+    <select id="getLatestId" resultMap="int">
+        SELECT
+        MAX(KNOCKLIST_ID)
+        FROM
+        KNOCKLIST
+    </select>
+
     <insert id="add" parameterType="com.good.tyotto.nknock.api.domain.KnockList" useGeneratedKeys="true" keyProperty="knockListId">
         <include refid="timestampVariable"/>
         INSERT INTO
@@ -106,6 +113,8 @@
         #{sysdate},
         #{tagId}
         )
+
+
     </insert>
 
     <update id="update" parameterType="com.good.tyotto.nknock.api.domain.KnockList">

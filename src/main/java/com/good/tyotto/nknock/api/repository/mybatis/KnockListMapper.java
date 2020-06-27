@@ -18,6 +18,8 @@ public interface KnockListMapper {
 
     List<Tag> getTag();
 
+    int getLatestId();
+
     void add(KnockList knockList);
 
     void update(KnockList knockList);

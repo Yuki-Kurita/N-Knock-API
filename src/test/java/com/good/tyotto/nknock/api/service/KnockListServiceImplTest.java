@@ -50,6 +50,17 @@ public class KnockListServiceImplTest {
             Mockito.verify(knockListRepository, Mockito.times(1)).find(selector);
         }
 
+        @Test void testGetLatestId() {
+            int findResult = 1;
+            Mockito.doReturn(findResult).when(knockListRepository).getLatestId();
+
+            KnockListServiceImpl target = new KnockListServiceImpl(knockListRepository);
+            int result = target.getLatestId();
+
+            assertEquals(findResult, result);
+            Mockito.verify(knockListRepository, Mockito.times(1)).getLatestId();
+        }
+
         @Test void testAdd() {
             KnockList knockList = new KnockList();
             Mockito.doNothing().when(knockListRepository).add(knockList);
