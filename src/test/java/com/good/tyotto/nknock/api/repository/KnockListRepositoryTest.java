@@ -62,6 +62,17 @@ public class KnockListRepositoryTest {
     }
 
     @Test
+    public void testGetLatestId() {
+        int findResult = 1;
+        Mockito.doReturn(findResult).when(mapper).getLatestId();
+
+        int result = new KnockListRepositoryImpl(this.sqlSession).getLatestId();
+
+        assertEquals(findResult, result);
+        Mockito.verify(mapper, Mockito.times(1)).getLatestId();
+    }
+
+    @Test
     public void testAdd() {
         KnockList knockList = new KnockList();
         Mockito.doNothing().when(mapper).add(knockList);

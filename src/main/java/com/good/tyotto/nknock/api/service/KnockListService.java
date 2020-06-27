@@ -27,6 +27,12 @@ public interface KnockListService {
     TagList findTag();
 
     /**
+     * 最新のノックリストIDを取得する
+     * @return 最新ノックリストID
+     */
+    int getLatestId();
+
+    /**
      * ノックリストを追加
      * @param knockList 追加するノックリスト
      */
