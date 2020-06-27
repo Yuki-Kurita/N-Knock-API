@@ -38,6 +38,11 @@ public class KnockListServiceImpl implements KnockListService {
     }
 
     @Override
+    public int getLatestId() {
+        return knockListRepository.getLatestId();
+    }
+
+    @Override
     public void add(KnockList knockList) {
         knockListRepository.add(knockList);
     }

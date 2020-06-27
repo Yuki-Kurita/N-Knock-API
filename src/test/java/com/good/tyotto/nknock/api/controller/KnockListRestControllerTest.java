@@ -3,6 +3,7 @@ package com.good.tyotto.nknock.api.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.good.tyotto.nknock.api.domain.KnockList;
 import com.good.tyotto.nknock.api.domain.KnockListGroup;
+import com.good.tyotto.nknock.api.domain.TagList;
 import com.good.tyotto.nknock.api.service.KnockListService;
 import com.good.tyotto.nknock.api.util.UnitTestUtil;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +42,7 @@ public class KnockListRestControllerTest {
      * @throws Exception
      */
     @Test
-    public void testFindAll() throws Exception{
+    public void testFindAll() throws Exception {
         KnockListGroup findResult = new KnockListGroup();
         Mockito.doReturn(findResult).when(knockListService).findAll();
 
@@ -51,6 +52,32 @@ public class KnockListRestControllerTest {
                 .andReturn();
         assertEquals(UnitTestUtil.entity2JsonText(findResult), result.getResponse().getContentAsString());
         Mockito.verify(knockListService, Mockito.times(1)).findAll();
+    }
+
+    @Test void testFindTag() throws Exception {
+        TagList findResult = new TagList();
+        Mockito.doReturn(findResult).when(knockListService).findTag();
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+                .get("/knocklist/tags"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        assertEquals(UnitTestUtil.entity2JsonText(findResult), result.getResponse().getContentAsString());
+        Mockito.verify(knockListService, Mockito.times(1)).findTag();
+
+    }
+
+     @Test void testGetLatestId() throws Exception {
+        int findResult = 1;
+        Mockito.doReturn(findResult).when(knockListService).getLatestId();
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+                .get("/knocklist/latest"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        assertEquals(UnitTestUtil.entity2JsonText(findResult), result.getResponse().getContentAsString());
+        Mockito.verify(knockListService, Mockito.times(1)).getLatestId();
+
     }
 
     @Test void testAdd() throws Exception {
